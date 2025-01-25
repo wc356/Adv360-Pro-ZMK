@@ -3,7 +3,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/backlight.h>
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 600   // default: 600
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 900   // default: 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // default: 10
 #include <dt-bindings/zmk/pointing.h>
 
@@ -31,16 +31,6 @@
           quick_tap_ms = <175>;
           flavor = "tap-preferred";
           bindings = <&kp>, <&kp>;
-      };
-
-      mmv_no_acc: mouse_move {
-          compatible = "zmk,behavior-input-two-axis";
-          label = "Mouse Move No Acceleration";
-          #binding-cells = <1>;
-          x-input-code = <INPUT_REL_X>;
-          y-input-code = <INPUT_REL_Y>;
-          time-to-max-speed-ms = <0>;
-          acceleration-exponent = <0>;
       };
 
       msc_no_acc: mouse_scroll {
@@ -72,7 +62,7 @@
       bindings = <
         &kp EQUAL     &kp N1                &kp N2              &kp N3                &kp N4                 &kp N5 &mo 2                                                       &mo 3     &kp N6    &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &kp MINUS   &kp KP_DOT
         &mt SPACE TAB &msc_no_acc SCRL_LEFT &msc_no_acc SCRL_UP &msc_no_acc SCRL_DOWN &msc_no_acc SCRL_RIGHT &kp T  &kp DEL                                                     &mkp LCLK &kp Y     &kp KP_N7    &kp KP_N8     &kp KP_N9       &kp KP_PLUS &kp BSLH
-        &kp ESC       &mmv_no_acc MOVE_LEFT &mmv_no_acc MOVE_UP &mmv_no_acc MOVE_DOWN &mmv_no_acc MOVE_RIGHT &kp G  &trans     &kp LCTRL &kp HOME &kp RCTRL &kp CAPS            &sk HYPER &kp SPACE &kp KP_N4    &kp KP_N5     &kp KP_N6       &kp SEMI    &kp SQT
+        &kp ESC       &mmv MOVE_LEFT        &mmv MOVE_UP        &mmv MOVE_DOWN        &mmv MOVE_RIGHT        &kp G  &trans     &kp LCTRL &kp HOME &kp RCTRL &kp CAPS            &sk HYPER &kp SPACE &kp KP_N4    &kp KP_N5     &kp KP_N6       &kp SEMI    &kp SQT
         &kp LSHFT     &kp Z                 &kp X               &mkp RCLK             &mkp LCLK              &kp B                       &kp END  &kp PG_UP                               &kp N     &kp KP_N1    &kp KP_N2     &kp KP_N3       &kp FSLH    &kp RSHFT
         &kp LCTRL     &kp GRAVE             &kp PRCNT           &kp LEFT              &kp RIGHT                       &kp LGUI &kp BSPC  &kp LALT &kp PG_DN &kp ENTER &kp KP_N0                     &kp C_VOL_DN &kp C_VOL_UP  &kp LBKT        &kp RBKT    &mo 2
       >;
